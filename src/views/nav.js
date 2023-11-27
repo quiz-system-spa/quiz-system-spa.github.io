@@ -25,7 +25,7 @@ const guestNav = html`
                         <a class="nav-link" href="/login">Sign in</a>
                     </div>`
 
-function logoutSubmit() {
-    logoutUser();
+async function logoutSubmit() {
+    await logoutUser();
     page.redirect('/')
 }

@@ -1,7 +1,6 @@
-export function setUserData(data) {
-  const userData = {}
-  userData._id = data.objectId;
-  userData.accessToken = data.sessionToken
+//sessionToken,objectId,username,email
+export function setUserData({ objectId, username, email, sessionToken }) {
+  const userData = { objectId, username, email, sessionToken }
   localStorage.setItem("userData", JSON.stringify(userData));
 }
 export function getUserData() {

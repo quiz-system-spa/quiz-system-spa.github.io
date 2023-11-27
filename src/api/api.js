@@ -20,7 +20,7 @@ async function request(method, url, body) {
 
   const userData = getUserData()
   if (userData != null) {
-    options.headers["X-Parse-Session-Token"] = userData.accessToken;
+    options.headers["X-Parse-Session-Token"] = userData.sessionToken;
   }
 
   try {
