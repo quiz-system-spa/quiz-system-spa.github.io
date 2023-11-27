@@ -1,5 +1,5 @@
 console.log('works');
-import page from '../../lib/page.mjs'
+import page from '../../page/page.mjs'
 import { addRenderer } from '../middlewares/render.js';
 import { homePage } from './homeView.js';
 import { registerPage } from './registerView.js';

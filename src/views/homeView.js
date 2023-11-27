@@ -1,5 +1,5 @@
 import { getUserData } from './utils.js'
-import { html } from '../../lib/lit-html/lit-html.js'
+import { html } from '../../lit-html/lit-html.js'
 
 const homeTemplate = (user) => html`
             <section id="welcome">

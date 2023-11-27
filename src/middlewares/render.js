@@ -1,4 +1,4 @@
-import { render } from '../../lib/lit-html.js'
+import { render } from '../../lit-html/lit-html.js'
 import { navTemplate } from '../views/nav.js';
 import { getUserData } from '../views/utils.js';
 const root = document.querySelector('#titlebar')
