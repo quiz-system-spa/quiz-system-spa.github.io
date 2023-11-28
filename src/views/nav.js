@@ -14,7 +14,7 @@ export const navTemplate = (isUser) => html`
 
 const userNav = html`
 <div id="user-nav" style="display:block">
-                        <a class="nav-link" href="/edit">Create</a>
+                        <a class="nav-link" href="/edit/new">Create</a>
                         <a class="nav-link profile-link" href="#"><i class="fas fa-user-circle"></i></a>
                         <a id="logoutBtn" @click=${logoutSubmit} class="nav-link" href="javascript:void(0)">Logout</a>
                     </div>`

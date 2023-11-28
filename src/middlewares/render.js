@@ -10,7 +10,7 @@ export function addRenderer(ctx, next) {
     } else {
         render(navTemplate(false), root)
     }
-    const container = document.querySelector('main#content')
+    const container = document.querySelector('#content')
     ctx.show = (html) => container.innerHTML = html
     ctx.render = (content) => render(content, container)
     next()

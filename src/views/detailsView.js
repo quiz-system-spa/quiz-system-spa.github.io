@@ -1,43 +1,33 @@
-import { getUserData } from './utils.js'
 import { html } from '../../lit-html/lit-html.js'
-const detailsTemplate = (user) => html`
-            <section id="welcome">
+import { getQuizById } from '../api/data.js'
 
-<div class="hero layout">
-    <div class="splash right-col"><i class="fas fa-clipboard-list"></i></div>
-    <div class="glass welcome">
-        <h1>Welcome to Quiz Fever!</h1>
-        <p>Home to 157 quizes in 12 topics. <a href="/browse">Browse all quizes</a>.</p>
-        <a class="action cta" href="/login">Sign in to create a quiz</a>
-    </div>
-</div>
+const detailsTemplate = (data) => html`
+            <section id="details">
+                <div class="pad-large alt-page">
+                    <article class="details">
+                        <h1>${data.title}</h1>
+                        <span class="quiz-topic">A quiz by <a href="#">Peter</a> on the topic of ${data.topic}</span>
+                        <div class="quiz-meta">
+                            <span>15 Questions</span>
+                            <span>|</span>
+                            <span>Taken 189 times</span>
+                        </div>
+                        <p class="quiz-desc">Test your knowledge of XML by completing this medium-difficulty quiz.
+                            Lorem ipsum dolor
+                            sit amet consectetur adipisicing elit. Aliquam recusandae corporis voluptatum quibusdam
+                            maxime similique reprehenderit rem, officia vero at.</p>
 
-<div class="pad-large alt-page">
-    <h2>Our most recent quiz:</h2>
+                        <div>
+                            <a class="cta action" href="#">Begin Quiz</a>
+                        </div>
 
-    <article class="preview layout">
-        <div class="right-col">
-            <a class="action cta" href="#">View Quiz</a>
-        </div>
-        <div class="left-col">
-            <h3>Extensible Markup Language</h3>
-            <span class="quiz-topic">Topic: Languages</span>
-            <div class="quiz-meta">
-                <span>15 questions</span>
-                <span>|</span>
-                <span>Taken 54 times</span>
-            </div>
-        </div>
-    </article>
-
-    <div>
-        <a class="action cta" href="/quiz">Browse all quizes</a>
-    </div>
-</div>
-
-</section>`
+                    </article>
+                </div>
+            </section>`
 
 export async function detailsPage(ctx) {
-    const user = getUserData()
-    ctx.render(detailsTemplate(user))
+    const quizId = ctx.params.id
+    const quizData = await getQuizById(quizId);
+    console.log(quizData)
+    ctx.render(detailsTemplate(quizData))
 }

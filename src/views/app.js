@@ -9,12 +9,14 @@ import { contestPage } from './contestView.js';
 import { detailsPage } from './detailsView.js';
 import { editPage } from './editView.js';
 import { resultPage } from './resultView.js';
+import { loaderMiddleware } from '../middlewares/loader.js';
 
 
 page(addRenderer);
+page(loaderMiddleware);
 page('/index.html', '/');
 page('/', homePage);
-page('/browse', browsePage)
+page('/browse', browsePage);
 page('/contest', contestPage)
 page('/details/:id', detailsPage)
 page('/edit/:id', editPage)

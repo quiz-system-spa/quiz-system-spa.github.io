@@ -1,40 +1,78 @@
 import { getUserData } from './utils.js'
 import { html } from '../../lit-html/lit-html.js'
+
 const browseTemplate = (user) => html`
-            <section id="welcome">
-
-<div class="hero layout">
-    <div class="splash right-col"><i class="fas fa-clipboard-list"></i></div>
-    <div class="glass welcome">
-        <h1>Welcome to Quiz Fever!</h1>
-        <p>Home to 157 quizes in 12 topics. <a href="/browse">Browse all quizes</a>.</p>
-        <a class="action cta" href="/login">Sign in to create a quiz</a>
-    </div>
-</div>
-
-<div class="pad-large alt-page">
-    <h2>Our most recent quiz:</h2>
-
-    <article class="preview layout">
-        <div class="right-col">
-            <a class="action cta" href="#">View Quiz</a>
+<section id="browse">
+    <header class="pad-large">
+        <form class="browse-filter">
+            <input class="input" type="text" name="query">
+            <select class="input" name="topic">
+                <option value="all">All Categories</option>
+                <option value="it">Languages</option>
+                <option value="hardware">Hardware</option>
+                <option value="software">Tools and Software</option>
+            </select>
+            <input class="input submit action" type="submit" value="Filter Quizes">
+        </form>
+        <h1>All quizes</h1>
+    </header>
+    <!-- <div class="pad-large alt-page async">
+        <div class="sk-cube-grid">
+            <div class="sk-cube sk-cube1"></div>
+            <div class="sk-cube sk-cube2"></div>
+            <div class="sk-cube sk-cube3"></div>
+            <div class="sk-cube sk-cube4"></div>
+            <div class="sk-cube sk-cube5"></div>
+            <div class="sk-cube sk-cube6"></div>
+            <div class="sk-cube sk-cube7"></div>
+            <div class="sk-cube sk-cube8"></div>
+            <div class="sk-cube sk-cube9"></div>
         </div>
-        <div class="left-col">
-            <h3>Extensible Markup Language</h3>
-            <span class="quiz-topic">Topic: Languages</span>
-            <div class="quiz-meta">
-                <span>15 questions</span>
-                <span>|</span>
-                <span>Taken 54 times</span>
+    </div> -->
+    <div class="pad-large alt-page">
+        <article class="preview layout">
+            <div class="right-col">
+                <a class="action cta" href="#">View Quiz</a>
             </div>
-        </div>
-    </article>
-
-    <div>
-        <a class="action cta" href="/quiz">Browse all quizes</a>
+            <div class="left-col">
+                <h3><a class="quiz-title-link" href="#">Extensible Markup Language</a></h3>
+                <span class="quiz-topic">Topic: Languages</span>
+                <div class="quiz-meta">
+                    <span>15 questions</span>
+                    <span>|</span>
+                    <span>Taken 54 times</span>
+                </div>
+            </div>
+        </article>
+        <article class="preview layout">
+            <div class="right-col">
+                <a class="action cta" href="#">View Quiz</a>
+            </div>
+            <div class="left-col">
+                <h3><a class="quiz-title-link" href="#">RISC Architecture</a></h3>
+                <span class="quiz-topic">Topic: Hardware</span>
+                <div class="quiz-meta">
+                    <span>10 questions</span>
+                    <span>|</span>
+                    <span>Taken 107 times</span>
+                </div>
+            </div>
+        </article>
+        <article class="preview layout">
+            <div class="right-col">
+                <a class="action cta" href="#">View Quiz</a>
+            </div>
+            <div class="left-col">
+                <h3><a class="quiz-title-link" href="#">Webpack</a></h3>
+                <span class="quiz-topic">Topic: Tools and Software</span>
+                <div class="quiz-meta">
+                    <span>17 questions</span>
+                    <span>|</span>
+                    <span>Taken 189 times</span>
+                </div>
+            </div>
+        </article>
     </div>
-</div>
-
 </section>`
 
 export async function browsePage(ctx) {
